@@ -1,28 +1,74 @@
-# 📱 Kedo Android App
+# Kedo — Android App
 
-Aplicación móvil nativa diseñada como la interfaz principal (Cliente) para interactuar con el ecosistema **Kedo Backend**. Proporciona una experiencia de usuario fluida, segura y optimizada para dispositivos Android, permitiendo la gestión eficiente del sistema.
+Native Android client for the [Kedo Backend](https://github.com/josemanueldg02-star/Kedo_Backend) 
+REST API. Allows users to discover and manage geolocation-based community events, 
+with a dynamic UI that adapts based on the authenticated user's role.
 
-## ✨ Características Principales
+Built as the capstone project for a Higher Degree in Multiplatform Application 
+Development (DAM).
 
-* **Modelo de Usuario Unificado:** Soporte completo para el sistema de roles integrados de la plataforma, donde la vista se adapta dinámicamente dependiendo de si el usuario es administrador o cliente estándar.
-* **Sincronización Asíncrona:** Consumo de la API REST del backend para la persistencia, lectura y actualización de datos en tiempo real.
-* **Interfaz de Usuario (UI) Nativa:** Componentes diseñados con los estándares de Material Design para asegurar un alto rendimiento y una usabilidad intuitiva.
-
-## 🛠️ Stack Tecnológico
-
-* **Plataforma:** Android (Desarrollo Nativo).
-* **Arquitectura:** Modelo Cliente-Servidor.
-* **Comunicaciones:** Gestión de peticiones HTTP/JSON para el intercambio de datos con la API central.
-
-## ⚙️ Requisitos y Configuración Local
-
-Para ejecutar este proyecto en un entorno de desarrollo local, sigue estos pasos:
-
-1. Clona este repositorio en tu máquina.
-2. Abre el proyecto utilizando **Android Studio**.
-3. Sincroniza los archivos de Gradle (`Sync Project with Gradle Files`).
-4. **Importante:** Asegúrate de que tu instancia de `Kedo_Backend` esté ejecutándose. Si pruebas la app en un dispositivo físico, deberás cambiar las URLs base de la API apuntando a la IP local de tu ordenador en la misma red Wi-Fi (ej. `http://192.168.X.X:8080`), ya que `localhost` apuntaría internamente al propio teléfono.
-5. Compila y ejecuta en tu emulador o dispositivo físico.
+[![Kotlin](https://img.shields.io/badge/Kotlin-latest-7F52FF)](https://kotlinlang.org/)
+[![Android](https://img.shields.io/badge/Android-native-3DDC84)](https://developer.android.com/)
+[![MVVM](https://img.shields.io/badge/Architecture-MVVM-blue)]()
+[![Material Design](https://img.shields.io/badge/UI-Material%20Design-757575)](https://m3.material.io/)
 
 ---
-*Diseñado para ofrecer escalabilidad y rendimiento en el ecosistema móvil.*
+
+## Features
+
+- **JWT authentication** — secure login with token stored and sent on 
+every API request
+- **Role-based UI** — the interface adapts dynamically depending on 
+whether the user is an admin or a standard user
+- **Geolocation-based event discovery** — community events filtered and 
+displayed based on the user's location
+- **Real-time data sync** — asynchronous REST API consumption for 
+persistent, up-to-date data
+
+---
+
+## Tech Stack
+
+- **Language:** Kotlin
+- **Architecture:** MVVM (Model-View-ViewModel)
+- **UI:** Native Android components with Material Design
+- **Networking:** HTTP/JSON requests to the Kedo REST API
+- **Build:** Gradle
+
+---
+
+## Technical Highlights
+
+- **MVVM architecture.** ViewModels expose UI state via LiveData/StateFlow, 
+keeping business logic out of Activities and Fragments and making the app 
+easier to test and maintain.
+- **Role-driven view layer.** The JWT payload contains the user role, which 
+the app reads on login to render admin or standard user screens without 
+additional API calls.
+- **Network-aware data layer.** API calls are handled asynchronously, with 
+error states surfaced to the UI cleanly through the ViewModel layer.
+
+---
+
+## Running Locally
+
+**Prerequisites:** Android Studio, and 
+[Kedo_Backend](https://github.com/josemanueldg02-star/Kedo_Backend) 
+running locally.
+
+```bash
+git clone https://github.com/josemanueldg02-star/Kedo_Android.git
+```
+
+1. Open the project in **Android Studio**
+2. Sync Gradle (`File → Sync Project with Gradle Files`)
+3. Update the API base URL to your machine's local IP address 
+(e.g. `http://192.168.X.X:8080`) — `localhost` resolves to the 
+device itself, not your computer
+4. Run on emulator or physical device
+
+---
+
+## Author
+
+**José Manuel Domínguez García** · [@josemanueldg02-star](https://github.com/josemanueldg02-star)
